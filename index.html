@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Meine Ampel</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+        <style>
+            body {
+              margin: 0;
+              overflow: hidden;
+            }
+
+            h1 {
+                font-family: 'Roboto', 'Arial', sans-serif;
+            }
+          </style>
+    </head>
+
+    <body>
+        <h1>Meine Ampel ist ...</h1>
+        <canvas class="myCanvas">
+            <p>Your browser doesn't support canvas. Boo hoo!</p>
+        </canvas>
+        <script>
+            const canvas = document.querySelector('.myCanvas');
+            const width = canvas.width = window.innerWidth;
+            const height = canvas.height = window.innerHeight;
+            const ctx = canvas.getContext('2d');
+
+            ctx.fillStyle = 'rgb(64, 64, 64)';
+            ctx.fillRect(width / 2 - 100, height /2 - 300, 200, 500);
+
+            ctx.fillStyle = 'rgb(192, 192, 192)';
+            ctx.beginPath();
+            ctx.arc(width/2, height/2 - 200, 50, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            ctx.fillStyle = 'rgb(192, 192, 192)';
+            ctx.beginPath();
+            ctx.arc(width/2, height/2 - 50, 50, 0, 2 * Math.PI);
+            ctx.fill();
+            const colors = [
+                'rgb(213,1,0)',
+                'rgb(254,87,34)',
+                'rgb(255,151,0)',
+                'rgb(254,193,7)',
+                'rgb(192,202,51)',
+                'rgb(125,179,67)',
+                'rgb(10,128,67)',
+                'rgb(0,151,136)',
+                'rgb(0,172,194)',
+                'rgb(3,155,230)',
+                'rgb(63,81,181)',
+                'rgb(121,134,204)',
+                'rgb(179,157,219)',
+                'rgb(126,87,194)',
+                'rgb(173,20,87)',
+                'rgb(234,30,99)']
+
+            ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
+            ctx.beginPath();
+            ctx.arc(width/2, height/2 + 100, 50, 0, 2 * Math.PI);
+            ctx.fill();
+
+        </script>
+    </body>
+</html>
